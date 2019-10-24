@@ -66,7 +66,7 @@
   - service: switch.turn_on
     entity_id: switch.siren_switch
   - service: notify.pushbullet
-    data:
+    data_template:
       message: 'ALARM TRIGGERED!!! {{ states[states.alarm_control_panel.house.attributes.changed_by.split(".")[0]][ states.alarm_control_panel.house.attributes.changed_by.split(".")[1]].name }}'
       target: email/example@gmail.com
 
@@ -78,7 +78,7 @@
     to: 'warning'
   action:
   - service: notify.pushbullet
-    data:
+    data_template:
       message: 'ALARM Warning {{ states[states.alarm_control_panel.house.attributes.changed_by.split(".")[0]][ states.alarm_control_panel.house.attributes.changed_by.split(".")[1]].name }}'
       target: email/example@gmail.com
   - data:
